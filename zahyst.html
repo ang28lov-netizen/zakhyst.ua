@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ЗАХИСТ UA — Зняття розшуку ТЦК законно та дистанційно</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg-primary: #0B1628;
+  --bg-dark: #070E1B;
+  --bg-darker: #060E1A;
+  --bg-card: #111827;
+  --bg-card2: #111D2E;
+  --bg-light: #F4F4F5;
+  --accent: #FF8400;
+  --accent-dim: rgba(255,132,0,0.12);
+  --accent-dim2: rgba(255,132,0,0.08);
+  --white: #FFFFFF;
+  --text-muted: #A1A1AA;
+  --text-muted2: #94A3B8;
+  --text-muted3: #71717A;
+  --text-dim: #4A5568;
+  --text-label: #C8D6E5;
+  --border: #1E3050;
+  --border-light: #E2E2E5;
+  --border-header: #E5E7EB;
+  --viber: #7360F2;
+  --wa: #25D366;
+  --tg: #229ED9;
+  --blue-logo: #3B6CB4;
+  --navy: #1B2E5A;
+  --green: #22C55E;
+  --font-head: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--bg-primary); color: var(--white); overflow-x: hidden; }
+
+/* ─── HEADER ─── */
+.header {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--border-header);
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 32px;
+}
+.logo-area { display: flex; align-items: center; gap: 10px; }
+.logo-icon {
+  width: 36px; height: 36px; background: var(--blue-logo);
+  border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.logo-icon i { color: #fff; width: 20px; height: 20px; }
+.logo-text {
+  font-family: var(--font-head); font-size: 22px; font-weight: 800;
+  color: var(--navy); letter-spacing: 1px;
+}
+.messenger-area { display: flex; align-items: center; gap: 12px; }
+.msg-btn {
+  width: 36px; height: 36px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: opacity .2s; flex-shrink: 0;
+  border: none;
+}
+.msg-btn:hover { opacity: .85; }
+.msg-btn i { width: 18px; height: 18px; color: #fff; }
+.msg-btn.viber { background: var(--viber); }
+.msg-btn.wa { background: var(--wa); }
+.msg-btn.tg { background: var(--tg); }
+.right-area { display: flex; align-items: center; gap: 16px; }
+.phone-text {
+  font-family: var(--font-head); font-size: 16px; font-weight: 700; color: var(--bg-primary);
+}
+.menu-icon { cursor: pointer; }
+.menu-icon i { width: 24px; height: 24px; color: var(--bg-primary); }
+
+/* ─── HERO ─── */
+.hero {
+  position: relative; min-height: 700px; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  padding: 80px 120px;
+  background: var(--bg-primary);
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 30%, rgba(59,108,180,.18) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 80% 60%, rgba(255,132,0,.06) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 20% 80%, rgba(34,62,116,.25) 0%, transparent 60%);
+}
+.hero-grain {
+  position: absolute; inset: 0; z-index: 0; opacity: .06;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+.hero-inner {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column; align-items: center; gap: 32px; text-align: center;
+}
+.hero-headline {
+  font-family: var(--font-head); font-size: 48px; font-weight: 900;
+  color: var(--white); line-height: 1.1; letter-spacing: -1px;
+  max-width: 900px;
+}
+.hero-sub {
+  font-family: var(--font-body); font-size: 20px; color: var(--text-muted);
+  max-width: 700px; line-height: 1.5;
+}
+.cta-btn {
+  background: var(--accent); color: var(--bg-primary);
+  font-family: var(--font-head); font-size: 20px; font-weight: 700;
+  padding: 18px 48px; border-radius: 12px; border: none; cursor: pointer;
+  transition: background .2s, transform .15s;
+}
+.cta-btn:hover { background: #e97800; transform: translateY(-1px); }
+.trust-row { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; justify-content: center; }
+.trust-badge {
+  display: flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,.06); border-radius: 8px;
+  padding: 10px 20px;
+}
+.trust-badge i { width: 18px; height: 18px; color: var(--accent); flex-shrink: 0; }
+.trust-badge span { color: var(--white); font-family: var(--font-body); font-size: 14px; font-weight: 500; }
+
+/* ─── EDUCATIONAL ─── */
+.edu-block {
+  background: var(--bg-light); padding: 80px 120px;
+  display: flex; flex-direction: column; gap: 48px;
+}
+.edu-cols { display: flex; gap: 64px; align-items: stretch; }
+.edu-left { flex: 1; display: flex; flex-direction: column; gap: 20px; }
+.edu-left-title {
+  font-family: var(--font-head); font-size: 32px; font-weight: 800;
+  color: var(--bg-primary); line-height: 1.1; letter-spacing: -.5px;
+}
+.edu-left-body {
+  font-family: var(--font-body); font-size: 16px; color: var(--text-muted3); line-height: 1.6;
+}
+.edu-right {
+  flex: 0 0 auto; width: 340px; background: var(--bg-primary);
+  border-radius: 16px; padding: 40px 32px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+}
+.edu-stat-num {
+  font-family: var(--font-head); font-size: 96px; font-weight: 900;
+  color: var(--accent); line-height: .85; letter-spacing: -4px;
+}
+.edu-stat-label {
+  font-family: var(--font-head); font-size: 24px; font-weight: 300;
+  color: var(--white); text-align: center;
+}
+.warn-bar {
+  display: flex; align-items: flex-start; gap: 12px;
+  background: var(--bg-primary); border-radius: 12px; padding: 20px 24px;
+}
+.warn-bar i { width: 22px; height: 22px; color: var(--accent); flex-shrink: 0; margin-top: 1px; }
+.warn-bar p { font-family: var(--font-body); font-size: 14px; font-weight: 500; color: var(--white); line-height: 1.5; }
+
+/* ─── RISK ─── */
+.risk-section {
+  background: var(--bg-primary); padding: 80px 120px;
+  display: flex; flex-direction: column; align-items: center; gap: 48px;
+}
+.section-title {
+  font-family: var(--font-head); font-size: 40px; font-weight: 900;
+  color: var(--white); text-align: center; letter-spacing: -1px;
+}
+.risk-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; width: 100%; }
+.risk-card {
+  background: var(--bg-card); border-radius: 16px; padding: 32px 28px;
+  display: flex; flex-direction: column; gap: 20px;
+}
+.icon-wrap {
+  width: 56px; height: 56px; background: rgba(255,132,0,.094);
+  border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.icon-wrap i { width: 28px; height: 28px; color: var(--accent); }
+.risk-title { font-family: var(--font-head); font-size: 20px; font-weight: 800; color: var(--white); }
+.risk-desc { font-family: var(--font-body); font-size: 14px; color: var(--text-muted); line-height: 1.5; }
+
+/* ─── STATS ─── */
+.stats-bar {
+  background: var(--bg-dark); padding: 80px 120px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.stat-item {
+  flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px;
+}
+.stat-num {
+  font-family: var(--font-head); font-size: 72px; font-weight: 900;
+  color: var(--accent); line-height: .9; letter-spacing: -2px;
+}
+.stat-label { font-family: var(--font-body); font-size: 16px; font-weight: 500; color: var(--text-muted); }
+.stat-divider { width: 1px; height: 80px; background: rgba(255,255,255,.08); flex-shrink: 0; }
+
+/* ─── TEAM ─── */
+.team-section {
+  background: var(--bg-primary); padding: 80px 120px;
+  display: flex; flex-direction: column; gap: 40px;
+}
+.section-header { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.section-badge {
+  display: flex; align-items: center; gap: 8px;
+  border-radius: 999px; padding: 8px 20px;
+}
+.section-badge i { width: 16px; height: 16px; flex-shrink: 0; }
+.section-badge span { font-family: var(--font-head); font-size: 12px; font-weight: 700; letter-spacing: 2px; }
+.badge-orange { background: rgba(255,132,0,.13); }
+.badge-orange i, .badge-orange span { color: var(--accent); }
+.badge-orange-light { background: rgba(255,132,0,.08); }
+.badge-orange-light i { color: var(--accent); }
+.badge-orange-light span { color: var(--bg-primary); }
+.section-title-dark { font-family: var(--font-head); font-size: 40px; font-weight: 800; color: var(--bg-primary); text-align: center; letter-spacing: -1px; }
+.section-sub {
+  font-family: var(--font-body); font-size: 16px; color: var(--text-muted2);
+  text-align: center; max-width: 600px;
+}
+.section-sub-dark { color: var(--text-dim); }
+.carousel-row { display: flex; align-items: center; gap: 16px; }
+.carousel-arrow {
+  width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0;
+  background: var(--bg-primary); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+  transition: background .2s, border-color .2s;
+}
+.carousel-arrow:hover { background: var(--border); border-color: var(--accent); }
+.carousel-arrow i { width: 24px; height: 24px; color: var(--white); }
+.carousel-arrow.dark-arrow { background: var(--bg-primary); }
+.carousel-track-wrap { flex: 1; overflow: hidden; }
+.carousel-track { display: flex; gap: 24px; transition: transform .4s cubic-bezier(.4,0,.2,1); }
+
+/* Team Cards */
+.team-card {
+  flex: 0 0 calc(33.333% - 16px); min-width: 0;
+  background: var(--bg-card2); border-radius: 16px; overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.team-photo {
+  height: 300px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
+}
+.team-photo svg { width: 100%; height: 100%; }
+.team-info { padding: 20px 24px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.team-name { font-family: var(--font-head); font-size: 20px; font-weight: 800; color: var(--white); }
+.team-role { font-family: var(--font-body); font-size: 14px; font-weight: 500; color: var(--accent); }
+.team-desc { font-family: var(--font-body); font-size: 13px; color: var(--text-muted2); line-height: 1.4; }
+
+/* ─── REVIEWS ─── */
+.reviews-section {
+  background: var(--bg-light); padding: 80px 120px;
+  display: flex; flex-direction: column; gap: 40px;
+}
+.review-card {
+  flex: 0 0 calc(33.333% - 16px); min-width: 0;
+  background: var(--white); border-radius: 16px;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 2px 8px rgba(0,0,0,.04);
+  padding: 28px; display: flex; flex-direction: column; gap: 16px;
+}
+.review-stars { display: flex; gap: 4px; }
+.review-stars i { width: 18px; height: 18px; color: var(--accent); fill: var(--accent); }
+.review-text { font-family: var(--font-body); font-size: 14px; color: var(--text-dim); line-height: 1.5; }
+.review-author { display: flex; align-items: center; gap: 12px; margin-top: auto; }
+.review-av {
+  width: 40px; height: 40px; border-radius: 50%; background: #FFF3E0;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.review-av span { font-family: var(--font-head); font-size: 14px; font-weight: 600; color: var(--accent); }
+.review-info { display: flex; flex-direction: column; gap: 2px; }
+.review-name { font-family: var(--font-head); font-size: 14px; font-weight: 600; color: var(--bg-primary); }
+.review-date { font-family: var(--font-body); font-size: 12px; color: var(--text-muted2); }
+.rev-arrow { background: var(--bg-primary); border: none; }
+.rev-arrow:hover { background: #1a2a42; }
+
+/* ─── CTA SECTION ─── */
+.cta-section {
+  background: linear-gradient(180deg, #0F1D30 0%, #1A0E00 100%);
+  padding: 80px 120px; display: flex; align-items: center; gap: 60px;
+}
+.cta-text { flex: 1; display: flex; flex-direction: column; gap: 24px; }
+.cta-text i.cta-icon { width: 48px; height: 48px; color: var(--accent); }
+.cta-title {
+  font-family: var(--font-head); font-size: 40px; font-weight: 800;
+  color: var(--white); line-height: 1.1; letter-spacing: -1px;
+}
+.cta-sub { font-family: var(--font-body); font-size: 16px; color: var(--text-muted2); line-height: 1.5; }
+.lead-form {
+  width: 440px; flex-shrink: 0; background: var(--bg-card2);
+  border-radius: 16px; border: 1px solid var(--border);
+  padding: 32px; display: flex; flex-direction: column; gap: 20px;
+}
+.form-title { font-family: var(--font-head); font-size: 24px; font-weight: 800; color: var(--white); letter-spacing: -.5px; }
+.form-sub { font-family: var(--font-body); font-size: 14px; color: var(--text-muted2); }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field label { font-family: var(--font-body); font-size: 14px; font-weight: 500; color: var(--text-label); }
+.field input, .field textarea {
+  background: var(--bg-primary); border: 1px solid var(--border);
+  border-radius: 10px; color: var(--white); font-family: var(--font-body); font-size: 14px;
+  padding: 0 16px; outline: none; transition: border-color .2s;
+}
+.field input { height: 44px; }
+.field textarea { height: 80px; padding: 12px 16px; resize: none; }
+.field input::placeholder, .field textarea::placeholder { color: var(--text-dim); }
+.field input:focus, .field textarea:focus { border-color: var(--accent); }
+.submit-btn {
+  width: 100%; height: 48px; background: var(--accent); border: none; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer;
+  transition: background .2s;
+}
+.submit-btn:hover { background: #e97800; }
+.submit-btn i { width: 18px; height: 18px; color: var(--bg-primary); }
+.submit-btn span { font-family: var(--font-head); font-size: 16px; font-weight: 700; color: var(--bg-primary); }
+
+/* ─── FAQ ─── */
+.faq-section {
+  background: var(--bg-primary); padding: 80px 120px;
+  display: flex; flex-direction: column; gap: 40px;
+}
+.faq-content { display: flex; gap: 40px; align-items: flex-start; }
+.faq-list { flex: 1; display: flex; flex-direction: column; }
+.faq-item {
+  border-bottom: 1px solid var(--border);
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.faq-q {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 0; cursor: pointer; user-select: none;
+}
+.faq-q span { font-family: var(--font-head); font-size: 16px; font-weight: 600; color: var(--white); }
+.faq-q i { width: 20px; height: 20px; color: var(--text-muted2); flex-shrink: 0; transition: transform .3s; }
+.faq-item.open .faq-q i { transform: rotate(180deg); }
+.faq-a {
+  max-height: 0; overflow: hidden; transition: max-height .35s cubic-bezier(.4,0,.2,1), padding .35s;
+  font-family: var(--font-body); font-size: 14px; color: var(--text-muted2); line-height: 1.5;
+}
+.faq-item.open .faq-a { max-height: 200px; padding-bottom: 20px; }
+.pricing-note {
+  width: 400px; flex-shrink: 0; background: var(--bg-card2);
+  border-radius: 16px; border: 1px solid var(--border);
+  padding: 32px; display: flex; flex-direction: column; gap: 20px;
+}
+.pr-icon { width: 40px; height: 40px; color: var(--accent); }
+.pr-title { font-family: var(--font-head); font-size: 24px; font-weight: 800; color: var(--white); letter-spacing: -.5px; }
+.pr-text1 { font-family: var(--font-body); font-size: 15px; font-weight: 600; color: var(--accent); }
+.pr-text2 { font-family: var(--font-body); font-size: 14px; color: var(--text-muted2); line-height: 1.5; }
+.pr-divider { width: 100%; height: 1px; background: var(--border); }
+.pr-features { display: flex; flex-direction: column; gap: 12px; }
+.pr-feat { display: flex; align-items: center; gap: 10px; }
+.pr-feat i { width: 16px; height: 16px; color: var(--green); flex-shrink: 0; }
+.pr-feat span { font-family: var(--font-body); font-size: 14px; font-weight: 500; color: var(--text-label); }
+
+/* ─── FOOTER ─── */
+.footer {
+  background: var(--bg-darker); border-top: 1px solid var(--border);
+  padding: 60px 120px; display: flex; flex-direction: column; gap: 40px;
+}
+.footer-top { display: flex; gap: 60px; justify-content: space-between; }
+.foot-brand { width: 300px; flex-shrink: 0; display: flex; flex-direction: column; gap: 16px; }
+.foot-logo { display: flex; align-items: center; gap: 10px; }
+.foot-desc { font-family: var(--font-body); font-size: 14px; color: var(--text-muted2); line-height: 1.5; }
+.foot-social { display: flex; gap: 12px; }
+.foot-social-btn {
+  width: 40px; height: 40px; border-radius: 10px; border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; transition: opacity .2s;
+}
+.foot-social-btn:hover { opacity: .85; }
+.foot-social-btn i { width: 18px; height: 18px; color: #C8D6E5; }
+.foot-col { display: flex; flex-direction: column; gap: 12px; }
+.foot-col-title { font-family: var(--font-head); font-size: 14px; font-weight: 700; color: var(--white); }
+.foot-col a, .foot-col span {
+  font-family: var(--font-body); font-size: 14px; color: var(--text-muted2);
+  text-decoration: none; transition: color .2s; cursor: pointer;
+}
+.foot-col a:hover { color: var(--white); }
+.foot-col .accent-link { color: var(--accent); }
+.foot-divider { width: 100%; height: 1px; background: var(--border); }
+.copyright-bar { display: flex; align-items: center; justify-content: space-between; }
+.copyright-bar span { font-family: var(--font-body); font-size: 13px; color: var(--text-dim); }
+.copy-links { display: flex; gap: 24px; }
+.copy-links a { font-family: var(--font-body); font-size: 13px; color: var(--text-dim); text-decoration: none; }
+.copy-links a:hover { color: var(--text-muted2); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1100px) {
+  .hero, .edu-block, .risk-section, .stats-bar, .team-section, .reviews-section,
+  .cta-section, .faq-section, .footer { padding-left: 48px; padding-right: 48px; }
+  .edu-cols { flex-direction: column; }
+  .edu-right { width: 100%; flex-direction: row; justify-content: center; gap: 32px; padding: 32px; }
+  .cta-section { flex-direction: column; }
+  .lead-form { width: 100%; }
+  .faq-content { flex-direction: column; }
+  .pricing-note { width: 100%; }
+  .footer-top { flex-wrap: wrap; gap: 40px; }
+  .foot-brand { width: 100%; }
+}
+@media (max-width: 768px) {
+  .header { padding: 0 16px; }
+  .hero { padding: 60px 24px; }
+  .hero-headline { font-size: 28px; }
+  .hero-sub { font-size: 16px; }
+  .edu-block, .risk-section, .stats-bar, .team-section, .reviews-section,
+  .cta-section, .faq-section, .footer { padding: 60px 24px; }
+  .risk-grid { grid-template-columns: 1fr; }
+  .stats-bar { flex-direction: column; gap: 40px; }
+  .stat-divider { width: 100px; height: 1px; }
+  .section-title, .section-title-dark { font-size: 28px; }
+  .messenger-area { display: none; }
+  .phone-text { font-size: 13px; }
+  .cta-btn { font-size: 17px; padding: 16px 36px; }
+  .trust-row { gap: 16px; }
+  .team-card { flex: 0 0 280px; }
+  .review-card { flex: 0 0 280px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="logo-area">
+    <div class="logo-icon"><i data-lucide="shield"></i></div>
+    <span class="logo-text">ЗАХИСТ UA</span>
+  </div>
+  <div class="messenger-area">
+    <button class="msg-btn viber" title="Viber"><i data-lucide="phone"></i></button>
+    <button class="msg-btn wa" title="WhatsApp"><i data-lucide="message-circle"></i></button>
+    <button class="msg-btn tg" title="Telegram"><i data-lucide="send"></i></button>
+  </div>
+  <div class="right-area">
+    <span class="phone-text">+38 (093) 017-10-20</span>
+    <div class="menu-icon"><i data-lucide="menu"></i></div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-inner">
+    <h1 class="hero-headline">Статус в розшуку ТЦК?<br>Допомога у знятті розшуку законно та дистанційно.</h1>
+    <p class="hero-sub">Без візиту до ТЦК. Гарантовані терміни.<br>Професійна юридична підтримка.</p>
+    <button class="cta-btn">Безкоштовна консультація</button>
+    <div class="trust-row">
+      <div class="trust-badge">
+        <i data-lucide="shield-check"></i>
+        <span>Без передоплати</span>
+      </div>
+      <div class="trust-badge">
+        <i data-lucide="clock-3"></i>
+        <span>Відповідь протягом 3 годин</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATIONAL BLOCK -->
+<section class="edu-block">
+  <div class="edu-cols">
+    <div class="edu-left">
+      <h2 class="edu-left-title">Що таке розшук ТЦК з юридичної точки зору?</h2>
+      <p class="edu-left-body">Розшук ТЦК — це адміністративна процедура, яка застосовується територіальними центрами комплектування для виклику військовозобов'язаних громадян. Юридично це не кримінальне переслідування, а захід забезпечення явки. Однак наслідки ігнорування можуть бути серйозними: від штрафів до примусової доставки.</p>
+    </div>
+    <div class="edu-right">
+      <div class="edu-stat-num">68%</div>
+      <div class="edu-stat-label">розшуків — незаконні</div>
+    </div>
+  </div>
+  <div class="warn-bar">
+    <i data-lucide="triangle-alert"></i>
+    <p>Це міра примусу, обмежена часом. Через 3 місяці бездіяльності відкривається провадження — зняти статус стає складніше.</p>
+  </div>
+</section>
+
+<!-- RISK ASSESSMENT -->
+<section class="risk-section">
+  <h2 class="section-title">Що вам загрожує?</h2>
+  <div class="risk-grid">
+    <div class="risk-card">
+      <div class="icon-wrap"><i data-lucide="truck"></i></div>
+      <div class="risk-title">Примусова доставка</div>
+      <div class="risk-desc">Ризик затримання та примусової доставки до ТЦК під час перевірки документів або на блокпостах.</div>
+    </div>
+    <div class="risk-card">
+      <div class="icon-wrap"><i data-lucide="lock"></i></div>
+      <div class="risk-title">Блокування рахунків</div>
+      <div class="risk-desc">Банківські рахунки можуть бути заблоковані за рішенням суду до з'явлення у ТЦК.</div>
+    </div>
+    <div class="risk-card">
+      <div class="icon-wrap"><i data-lucide="banknote"></i></div>
+      <div class="risk-title">Штрафи до 17,000 грн</div>
+      <div class="risk-desc">Адміністративні штрафи за неявку до ТЦК можуть сягати 17 000 грн та накладатися повторно.</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<section class="stats-bar">
+  <div class="stat-item">
+    <div class="stat-num">847</div>
+    <div class="stat-label">справ</div>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat-item">
+    <div class="stat-num">94%</div>
+    <div class="stat-label">успішних рішень</div>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat-item">
+    <div class="stat-num">57%</div>
+    <div class="stat-label">скасованих штрафів</div>
+  </div>
+</section>
+
+<!-- TEAM SECTION -->
+<section class="team-section">
+  <div class="section-header">
+    <div class="section-badge badge-orange">
+      <i data-lucide="users"></i>
+      <span>НАША КОМАНДА</span>
+    </div>
+    <h2 class="section-title">Досвідчені юристи на вашому боці</h2>
+    <p class="section-sub">Кожен член команди має багаторічний досвід у військовому та адміністративному праві</p>
+  </div>
+  <div class="carousel-row">
+    <button class="carousel-arrow" id="teamPrev"><i data-lucide="chevron-left"></i></button>
+    <div class="carousel-track-wrap">
+      <div class="carousel-track" id="teamTrack">
+        <div class="team-card">
+          <div class="team-photo">
+            <svg viewBox="0 0 380 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="g1a" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#1a2a4a"/>
+                  <stop offset="100%" stop-color="#0d1f38"/>
+                </linearGradient>
+              </defs>
+              <rect width="380" height="300" fill="url(#g1a)"/>
+              <circle cx="190" cy="110" r="55" fill="#2a3f62"/>
+              <ellipse cx="190" cy="270" rx="90" ry="50" fill="#2a3f62"/>
+              <circle cx="190" cy="95" r="38" fill="#3d5a8a"/>
+              <circle cx="190" cy="90" r="26" fill="#4a6fa0"/>
+              <text x="190" y="100" text-anchor="middle" font-family="Outfit" font-size="28" font-weight="700" fill="#FF8400">ЄК</text>
+            </svg>
+          </div>
+          <div class="team-info">
+            <div class="team-name">Євгеній Коваленко</div>
+            <div class="team-role">Старший юрист</div>
+            <div class="team-desc">12 років досвіду у військовому праві. Понад 300 успішних справ.</div>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo">
+            <svg viewBox="0 0 380 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="g2a" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#2a1a3a"/>
+                  <stop offset="100%" stop-color="#1a0e2a"/>
+                </linearGradient>
+              </defs>
+              <rect width="380" height="300" fill="url(#g2a)"/>
+              <circle cx="190" cy="110" r="55" fill="#3a2550"/>
+              <ellipse cx="190" cy="270" rx="90" ry="50" fill="#3a2550"/>
+              <circle cx="190" cy="95" r="38" fill="#4d3470"/>
+              <circle cx="190" cy="90" r="26" fill="#6040a0"/>
+              <text x="190" y="100" text-anchor="middle" font-family="Outfit" font-size="28" font-weight="700" fill="#FF8400">ТМ</text>
+            </svg>
+          </div>
+          <div class="team-info">
+            <div class="team-name">Тетяна Мельник</div>
+            <div class="team-role">Старший аналітик</div>
+            <div class="team-desc">Експерт з аналізу законодавчих актів та судової практики ТЦК.</div>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo">
+            <svg viewBox="0 0 380 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="g3a" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#0f2218"/>
+                  <stop offset="100%" stop-color="#071510"/>
+                </linearGradient>
+              </defs>
+              <rect width="380" height="300" fill="url(#g3a)"/>
+              <circle cx="190" cy="110" r="55" fill="#133025"/>
+              <ellipse cx="190" cy="270" rx="90" ry="50" fill="#133025"/>
+              <circle cx="190" cy="95" r="38" fill="#1c4535"/>
+              <circle cx="190" cy="90" r="26" fill="#245a44"/>
+              <text x="190" y="100" text-anchor="middle" font-family="Outfit" font-size="28" font-weight="700" fill="#FF8400">ОБ</text>
+            </svg>
+          </div>
+          <div class="team-info">
+            <div class="team-name">Олександр Бондар</div>
+            <div class="team-role">Адвокат</div>
+            <div class="team-desc">Спеціаліст із судового представництва. 8 років практики.</div>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo">
+            <svg viewBox="0 0 380 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="g4a" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#2a1a10"/>
+                  <stop offset="100%" stop-color="#1a0e05"/>
+                </linearGradient>
+              </defs>
+              <rect width="380" height="300" fill="url(#g4a)"/>
+              <circle cx="190" cy="110" r="55" fill="#3d2810"/>
+              <ellipse cx="190" cy="270" rx="90" ry="50" fill="#3d2810"/>
+              <circle cx="190" cy="95" r="38" fill="#5a3c18"/>
+              <circle cx="190" cy="90" r="26" fill="#7a4e20"/>
+              <text x="190" y="100" text-anchor="middle" font-family="Outfit" font-size="28" font-weight="700" fill="#FF8400">ІШ</text>
+            </svg>
+          </div>
+          <div class="team-info">
+            <div class="team-name">Ірина Шевченко</div>
+            <div class="team-role">Юрист-консультант</div>
+            <div class="team-desc">Консультує клієнтів з-за кордону. Дистанційна робота зі справами.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-arrow" id="teamNext"><i data-lucide="chevron-right"></i></button>
+  </div>
+</section>
+
+<!-- REVIEWS SECTION -->
+<section class="reviews-section">
+  <div class="section-header">
+    <div class="section-badge badge-orange-light">
+      <i data-lucide="message-circle"></i>
+      <span>ВІДГУКИ КЛІЄНТІВ</span>
+    </div>
+    <h2 class="section-title-dark">Що кажуть наші клієнти</h2>
+  </div>
+  <div class="carousel-row">
+    <button class="carousel-arrow rev-arrow" id="revPrev"><i data-lucide="chevron-left"></i></button>
+    <div class="carousel-track-wrap">
+      <div class="carousel-track" id="revTrack">
+
+        <div class="review-card">
+          <div class="review-stars">
+            <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+          </div>
+          <p class="review-text">"Зняли розшук за 2 тижні. Все дистанційно, без жодного візиту до ТЦК. Дуже вдячний команді за професіоналізм!"</p>
+          <div class="review-author">
+            <div class="review-av"><span>АК</span></div>
+            <div class="review-info">
+              <div class="review-name">Андрій К.</div>
+              <div class="review-date">Лютий 2026</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">
+            <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+          </div>
+          <p class="review-text">"Був у розшуку 4 місяці. Думав, що вже нічого не зробити. Команда Zakhyst UA довела протилежне — статус знято за 18 днів."</p>
+          <div class="review-author">
+            <div class="review-av"><span>ВМ</span></div>
+            <div class="review-info">
+              <div class="review-name">Віталій М.</div>
+              <div class="review-date">Січень 2026</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">
+            <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+          </div>
+          <p class="review-text">"Працюю за кордоном, не міг повернутися. Все зробили дистанційно. Скасували штраф і зняли з розшуку. Рекомендую!"</p>
+          <div class="review-author">
+            <div class="review-av"><span>ОП</span></div>
+            <div class="review-info">
+              <div class="review-name">Олег П.</div>
+              <div class="review-date">Грудень 2025</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">
+            <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+          </div>
+          <p class="review-text">"Після мобілізації виникли проблеми з документами. Zakhyst UA допомогли вирішити все за тиждень. Професійний підхід!"</p>
+          <div class="review-author">
+            <div class="review-av"><span>ДС</span></div>
+            <div class="review-info">
+              <div class="review-name">Дмитро С.</div>
+              <div class="review-date">Березень 2026</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">
+            <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+          </div>
+          <p class="review-text">"Команда працює швидко та ефективно. Мою справу закрили за 10 днів. Дякую за підтримку у складний час!"</p>
+          <div class="review-author">
+            <div class="review-av"><span>МГ</span></div>
+            <div class="review-info">
+              <div class="review-name">Максим Г.</div>
+              <div class="review-date">Лютий 2026</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">
+            <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+          </div>
+          <p class="review-text">"Звернувся після отримання повістки. Юристи пояснили всі мої права та допомогли оскаржити незаконні дії ТЦК. Рекомендую!"</p>
+          <div class="review-author">
+            <div class="review-av"><span>ІЛ</span></div>
+            <div class="review-info">
+              <div class="review-name">Ігор Л.</div>
+              <div class="review-date">Січень 2026</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">
+            <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+          </div>
+          <p class="review-text">"Отримав допомогу з оформленням відстрочки. Все зроблено грамотно та швидко. Дуже задоволений результатом роботи."</p>
+          <div class="review-author">
+            <div class="review-av"><span>СВ</span></div>
+            <div class="review-info">
+              <div class="review-name">Сергій В.</div>
+              <div class="review-date">Грудень 2025</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">
+            <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+          </div>
+          <p class="review-text">"Найкращі юристи з якими я працював. Чітко, швидко, результативно. Вирішили питання з ВЛК за 3 тижні."</p>
+          <div class="review-author">
+            <div class="review-av"><span>ПК</span></div>
+            <div class="review-info">
+              <div class="review-name">Павло К.</div>
+              <div class="review-date">Листопад 2025</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <button class="carousel-arrow rev-arrow" id="revNext"><i data-lucide="chevron-right"></i></button>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-section">
+  <div class="cta-text">
+    <i data-lucide="shield-alert" class="cta-icon"></i>
+    <h2 class="cta-title">Не чекайте, поки проблема погіршиться</h2>
+    <p class="cta-sub">Кожен день зволікання ускладнює вашу ситуацію. Зверніться до нас зараз — перша консультація безкоштовна.</p>
+  </div>
+  <div class="lead-form">
+    <div class="form-title">Залиште заявку</div>
+    <div class="form-sub">Ми зв'яжемося з вами протягом 3 годин</div>
+    <div class="field">
+      <label>Ваше ім'я</label>
+      <input type="text" placeholder="Іван Петренко">
+    </div>
+    <div class="field">
+      <label>Номер телефону</label>
+      <input type="tel" placeholder="+380 XX XXX XX XX">
+    </div>
+    <div class="field">
+      <label>Короткий опис ситуації</label>
+      <textarea placeholder="Розкажіть коротко про вашу ситуацію..."></textarea>
+    </div>
+    <button class="submit-btn">
+      <i data-lucide="send"></i>
+      <span>Надіслати заявку</span>
+    </button>
+  </div>
+</section>
+
+<!-- FAQ SECTION -->
+<section class="faq-section">
+  <div class="section-header">
+    <div class="section-badge badge-orange">
+      <i data-lucide="message-square"></i>
+      <span>ЧАСТІ ПИТАННЯ</span>
+    </div>
+    <h2 class="section-title">Відповіді на ваші запитання</h2>
+  </div>
+  <div class="faq-content">
+    <div class="faq-list">
+      <div class="faq-item open">
+        <div class="faq-q">
+          <span>Скільки часу займає зняття розшуку?</span>
+          <i data-lucide="chevron-down"></i>
+        </div>
+        <div class="faq-a">У середньому процес займає від 10 до 30 днів залежно від складності справи. Термін залежить від регіону та конкретних обставин.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span>Чи можна зняти розшук з-за кордону?</span>
+          <i data-lucide="chevron-down"></i>
+        </div>
+        <div class="faq-a">Так, ми успішно ведемо справи для клієнтів, які перебувають за кордоном. Весь процес відбувається дистанційно — жодного фізичного візиту до ТЦК не потрібно.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span>Скільки це коштує?</span>
+          <i data-lucide="chevron-down"></i>
+        </div>
+        <div class="faq-a">Первинна консультація безкоштовна. Вартість послуг залежить від складності справи і фіксується у договорі. Без прихованих платежів та передоплати.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span>Які гарантії ви надаєте?</span>
+          <i data-lucide="chevron-down"></i>
+        </div>
+        <div class="faq-a">Ми укладаємо офіційний договір із чітко прописаним результатом. 94% наших справ завершуються успішно. У разі негативного рішення — повертаємо кошти.</div>
+      </div>
+    </div>
+    <div class="pricing-note">
+      <i data-lucide="shield-check" class="pr-icon"></i>
+      <div class="pr-title">Прозоре ціноутворення</div>
+      <div class="pr-text1">Первинна консультація безкоштовна.</div>
+      <div class="pr-text2">Оплата за початок роботи, без прихованих платежів. Вартість залежить від складності вашої справи.</div>
+      <div class="pr-divider"></div>
+      <div class="pr-features">
+        <div class="pr-feat"><i data-lucide="check"></i><span>Без передоплати</span></div>
+        <div class="pr-feat"><i data-lucide="check"></i><span>Фіксована ціна</span></div>
+        <div class="pr-feat"><i data-lucide="check"></i><span>Гарантія результату</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="foot-brand">
+      <div class="foot-logo">
+        <div class="logo-icon"><i data-lucide="shield"></i></div>
+        <span style="font-family:var(--font-head);font-size:22px;font-weight:800;color:var(--white);letter-spacing:1px">ЗАХИСТ UA</span>
+      </div>
+      <div class="foot-desc">Професійна юридична допомога у знятті розшуку ТЦК. Працюємо дистанційно по всій Україні та за кордоном.</div>
+      <div class="foot-social">
+        <button class="foot-social-btn" style="background:var(--viber)"><i data-lucide="phone"></i></button>
+        <button class="foot-social-btn" style="background:var(--tg)"><i data-lucide="send"></i></button>
+        <button class="foot-social-btn" style="background:var(--wa)"><i data-lucide="message-circle"></i></button>
+      </div>
+    </div>
+    <div class="foot-col">
+      <div class="foot-col-title">Послуги</div>
+      <a href="#">Зняття розшуку</a>
+      <a href="#">Скасування штрафів</a>
+      <a href="#">Судове представництво</a>
+      <a href="#">Консультації</a>
+    </div>
+    <div class="foot-col">
+      <div class="foot-col-title">Компанія</div>
+      <a href="#">Про нас</a>
+      <a href="#">Команда</a>
+      <a href="#">Відгуки</a>
+      <a href="#">Контакти</a>
+    </div>
+    <div class="foot-col">
+      <div class="foot-col-title">Контакти</div>
+      <span>м. Дніпро, Україна</span>
+      <span class="accent-link">zakhyst.ua@gmail.com</span>
+      <span>+380 XX XXX XX XX</span>
+      <span>+380 XX XXX XX XX</span>
+    </div>
+  </div>
+  <div class="foot-divider"></div>
+  <div class="copyright-bar">
+    <span>© 2026 Zakhyst UA. Всі права захищені.</span>
+    <div class="copy-links">
+      <a href="#">Політика конфіденційності</a>
+      <a href="#">Умови використання</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>
+// Init Lucide icons
+lucide.createIcons();
+
+// ─── Carousel logic ───
+function makeCarousel(trackId, prevId, nextId) {
+  const track = document.getElementById(trackId);
+  const prev = document.getElementById(prevId);
+  const next = document.getElementById(nextId);
+  if (!track || !prev || !next) return;
+
+  let index = 0;
+
+  function getVisible() {
+    const wrap = track.parentElement;
+    const wrapW = wrap.clientWidth;
+    const cards = track.children;
+    if (!cards.length) return 3;
+    const cardW = cards[0].offsetWidth;
+    const gap = 24;
+    return Math.max(1, Math.floor((wrapW + gap) / (cardW + gap)));
+  }
+
+  function getCardStep() {
+    const cards = track.children;
+    if (!cards.length) return 0;
+    return cards[0].offsetWidth + 24;
+  }
+
+  function getMax() {
+    return Math.max(0, track.children.length - getVisible());
+  }
+
+  function slide() {
+    track.style.transform = `translateX(-${index * getCardStep()}px)`;
+  }
+
+  prev.addEventListener('click', () => {
+    index = Math.max(0, index - 1);
+    slide();
+  });
+
+  next.addEventListener('click', () => {
+    index = Math.min(getMax(), index + 1);
+    slide();
+  });
+
+  window.addEventListener('resize', () => {
+    index = Math.min(index, getMax());
+    slide();
+  });
+}
+
+makeCarousel('teamTrack', 'teamPrev', 'teamNext');
+makeCarousel('revTrack', 'revPrev', 'revNext');
+
+// ─── FAQ accordion ───
+document.querySelectorAll('.faq-item').forEach(item => {
+  const q = item.querySelector('.faq-q');
+  q.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+// ─── Star fill for review cards ───
+document.querySelectorAll('.review-stars i').forEach(star => {
+  star.style.fill = '#FF8400';
+});
+</script>
+</body>
+</html>
